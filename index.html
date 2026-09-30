@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fuoco Farina | فوكو فارينا</title>
+  <meta name="description" content="متجر إلكتروني فاخر للمأكولات الإيطالية والمشاوي والمأكولات البحرية والحلويات" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ========== TOAST ========== -->
+  <div id="toast-container"></div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="logo" id="logo">
+        <span class="logo-icon">🔥</span>
+        <span class="logo-text">Fuoco <em>Farina</em></span>
+      </a>
+
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="ابحث عن طبقك المفضل..." autocomplete="off" />
+        <button class="search-btn" id="search-btn" aria-label="بحث">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+      </div>
+
+      <nav class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" title="الوضع الداكن / الفاتح" aria-label="تبديل الوضع">
+          <span id="theme-icon">🌙</span>
+        </button>
+        <button class="icon-btn" id="wishlist-btn" title="المفضلة">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="badge-count" id="wishlist-count">0</span>
+        </button>
+        <button class="icon-btn" id="cart-btn" title="السلة">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span class="badge-count" id="cart-count">0</span>
+        </button>
+        <button class="icon-btn account-btn" id="account-btn" title="حسابي">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="account-label" id="account-label">دخول</span>
+        </button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="القائمة">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========== MOBILE NAV ========== -->
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-inner">
+      <button class="mobile-nav-close" id="mobile-nav-close">×</button>
+      <a href="#hero" class="mobile-link">الرئيسية</a>
+      <a href="#categories" class="mobile-link">الأقسام</a>
+      <a href="#products" class="mobile-link">القائمة</a>
+      <a href="#gallery" class="mobile-link">معرض الصور</a>
+      <a href="#reviews" class="mobile-link">آراء العملاء</a>
+      <a href="#about" class="mobile-link">من نحن</a>
+      <a href="#location" class="mobile-link">موقعنا</a>
+    </div>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow">مطعم ومخبز فاخر</p>
+      <h1 class="hero-title">Fuoco <em>Farina</em></h1>
+      <p class="hero-subtitle">أطباق إيطالية أصيلة، مشاوي فاخرة، مأكولات بحرية طازجة وحلويات لا تُنسى</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">تصفح القائمة</a>
+        <a href="#categories" class="btn btn-outline">الأقسام</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CATEGORIES ========== -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">الأقسام</h2>
+        <p class="section-desc">اختر ما تشتهيه</p>
+      </div>
+      <div class="categories-grid" id="categories-grid">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FILTERS & PRODUCTS ========== -->
+  <section class="products-section" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">قائمتنا</h2>
+        <p class="section-desc">أطباق مختارة بعناية</p>
+      </div>
+
+      <div class="filters-bar">
+        <div class="filter-pills" id="filter-pills">
+          <button class="pill active" data-category="all">الكل</button>
+          <button class="pill" data-category="appetizers">مقبلات وخبز</button>
+          <button class="pill" data-category="pizzas">بيتزا</button>
+          <button class="pill" data-category="steaks">ستيك ومشاوي</button>
+          <button class="pill" data-category="seafood">مأكولات بحرية</button>
+          <button class="pill" data-category="eastern">أطباق شرقية</button>
+          <button class="pill" data-category="desserts">حلويات</button>
+          <button class="pill" data-category="breakfast">إفطار</button>
+          <button class="pill" data-category="drinks">مشروبات</button>
+        </div>
+        <div class="sort-box">
+          <label for="sort-select">ترتيب:</label>
+          <select id="sort-select">
+            <option value="default">الافتراضي</option>
+            <option value="price-asc">السعر: الأقل</option>
+            <option value="price-desc">السعر: الأعلى</option>
+            <option value="name">الاسم</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- filled by JS -->
+      </div>
+      <div class="empty-state" id="empty-state" hidden>
+        <p>لا توجد منتجات مطابقة لبحثك</p>
+        <button class="btn btn-outline" id="reset-filters">إعادة تعيين الفلاتر</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY / SHOWCASE ========== -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">معرض الصور</h2>
+        <p class="section-desc">لمحة من مطبخنا وأطباقنا</p>
+      </div>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- filled by JS from product images -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REVIEWS ========== -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">آراء عملائنا</h2>
+        <p class="section-desc">ماذا يقول من جربنا</p>
+      </div>
+      <div class="reviews-grid">
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">«أفضل فاهيتا دجاج جربتها! الصينية وصلت وهي بتدخّن والطعم رهيب. التوصيل كان سريع والتعامل راقي.»</p>
+          <div class="review-author">
+            <div class="review-avatar">س</div>
+            <div>
+              <strong>سارة أحمد</strong>
+              <span>منذ أسبوع</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">«البامية والطواجن الشرقية كأنك في بيت جدتك. الطعم أصيل والكميات مشبعة. صار مطعمي الثابت.»</p>
+          <div class="review-author">
+            <div class="review-avatar">م</div>
+            <div>
+              <strong>محمد العلي</strong>
+              <span>منذ أسبوعين</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">«الحلويات عندهم خطيرة خاصة الكنافة والماكرون. القهوة كمان ممتازة. المكان نظيف والخدمة سريعة.»</p>
+          <div class="review-author">
+            <div class="review-avatar">ن</div>
+            <div>
+              <strong>نورة الخالد</strong>
+              <span>منذ 3 أيام</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">«طلبت سي فود بلاتر وعائلة كاملة شبعت. الروبيان طازج والسمك مشوي بمستوى مطاعم فاخرة. أنصح فيه بقوة.»</p>
+          <div class="review-author">
+            <div class="review-avatar">ع</div>
+            <div>
+              <strong>عبدالله الراشد</strong>
+              <span>منذ شهر</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">«أول مرة أستخدم دفع الطاولة بالـ QR وكان سهل جدًا. الأكل وصل ساخن والتغليف مرتب. تجربة كاملة.»</p>
+          <div class="review-author">
+            <div class="review-avatar">ل</div>
+            <div>
+              <strong>لمى السعيد</strong>
+              <span>منذ 5 أيام</span>
+            </div>
+          </div>
+        </article>
+        <article class="review-card">
+          <div class="review-stars">★★★★☆</div>
+          <p class="review-text">«الإفطار التركي غني ومتنوع. الأسعار معقولة مقارنة بالجودة. التطبيق سهل والسلة واضحة.»</p>
+          <div class="review-author">
+            <div class="review-avatar">خ</div>
+            <div>
+              <strong>خالد المنصور</strong>
+              <span>منذ أسبوعين</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT / من نحن ========== -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">من نحن</h2>
+        <p class="section-desc">قصتنا وطريقتنا</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-text-block">
+          <h3>Fuoco Farina</h3>
+          <p>نحن مطعم ومخبز يجمع بين المطبخ الإيطالي الأصيل والمأكولات الشرقية والعالمية. نبدأ يومنا باختيار أفضل المكونات الطازجة، ونخبز في فرن حجري، ونشوي على الفحم لنقدّم لك طبقًا يستحق الانتظار.</p>
+          <p>من البيتزا والباستا، إلى الطواجن والستيك، وصولًا للحلويات والقهوة — هدفنا تجربة طعم متكاملة في مكان واحد.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <strong>150+</strong>
+            <span>طبق في القائمة</span>
+          </div>
+          <div class="stat-card">
+            <strong>12</strong>
+            <span>سنة خبرة</span>
+          </div>
+          <div class="stat-card">
+            <strong>5000+</strong>
+            <span>عميل سعيد</span>
+          </div>
+          <div class="stat-card">
+            <strong>30</strong>
+            <span>دقيقة متوسط التوصيل</span>
+          </div>
+        </div>
+      </div>
+      <ul class="about-features">
+        <li>مكونات طازجة يوميًا</li>
+        <li>فرن حجري تقليدي</li>
+        <li>وصفات إيطالية وشرقية أصيلة</li>
+        <li>توصيل سريع أو استلام أو تناول في المطعم</li>
+        <li>دفع إلكتروني آمن وسهل</li>
+        <li>نقاط ولاء مع كل طلب</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ========== LOCATION / موقعنا ========== -->
+  <section class="location-section" id="location">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">موقعنا</h2>
+        <p class="section-desc">زورنا أو اطلب توصيلًا</p>
+      </div>
+      <div class="location-grid">
+        <div class="location-info">
+          <div class="loc-card">
+            <div class="loc-icon">📍</div>
+            <div>
+              <h4>العنوان</h4>
+              <p>شارع الأمير محمد بن عبدالعزيز (التحلية)، حي السليمانية<br>الرياض، المملكة العربية السعودية</p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">🕐</div>
+            <div>
+              <h4>ساعات العمل</h4>
+              <p>السبت – الخميس: 10:00 ص – 12:00 م<br>الجمعة: 2:00 م – 12:00 م</p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">📞</div>
+            <div>
+              <h4>تواصل معنا</h4>
+              <p>هاتف: <a href="tel:+966112345678">+966 11 234 5678</a><br>
+              واتساب: <a href="https://wa.me/966501234567" target="_blank" rel="noopener">+966 50 123 4567</a><br>
+              بريد: <a href="mailto:hello@fuocofarina.com">hello@fuocofarina.com</a></p>
+            </div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-icon">🚗</div>
+            <div>
+              <h4>التوصيل والاستلام</h4>
+              <p>توصيل خلال 30–45 دقيقة داخل الرياض<br>استلام من المطعم بدون رسوم</p>
+            </div>
+          </div>
+        </div>
+        <div class="location-map">
+          <div class="map-placeholder">
+            <div class="map-pin">📍</div>
+            <p>Fuoco Farina</p>
+            <span>التحلية · الرياض</span>
+            <a class="btn btn-primary map-btn" href="https://maps.google.com/?q=Al+Tahlia+Riyadh" target="_blank" rel="noopener">افتح في خرائط جوجل</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text">Fuoco <em>Farina</em></span>
+        <p>مطعم ومخبز فاخر</p>
+      </div>
+      <div class="footer-links">
+        <a href="#products">القائمة</a>
+        <a href="#gallery">المعرض</a>
+        <a href="#reviews">آراء العملاء</a>
+        <a href="#about">من نحن</a>
+        <a href="#location">موقعنا</a>
+        <a href="#" id="footer-orders">طلباتي</a>
+      </div>
+      <p class="footer-copy">© 2026 Fuoco Farina. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <!-- ========== PRODUCT MODAL ========== -->
+  <div class="modal-overlay" id="product-modal" hidden>
+    <div class="modal product-modal">
+      <button class="modal-close" id="product-modal-close">×</button>
+      <div class="modal-body" id="product-modal-body">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== AUTH MODAL ========== -->
+  <div class="modal-overlay" id="auth-modal" hidden>
+    <div class="modal auth-modal">
+      <button class="modal-close" id="auth-modal-close">×</button>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">تسجيل الدخول</button>
+        <button class="auth-tab" data-tab="register">إنشاء حساب</button>
+      </div>
+      <form id="login-form" class="auth-form">
+        <div class="form-group">
+          <label for="login-email">البريد الإلكتروني</label>
+          <input type="email" id="login-email" required placeholder="example@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="login-password">كلمة المرور</label>
+          <input type="password" id="login-password" required placeholder="••••••••" minlength="4" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">دخول</button>
+      </form>
+      <form id="register-form" class="auth-form" hidden>
+        <div class="form-group">
+          <label for="reg-name">الاسم</label>
+          <input type="text" id="reg-name" required placeholder="اسمك الكامل" />
+        </div>
+        <div class="form-group">
+          <label for="reg-email">البريد الإلكتروني</label>
+          <input type="email" id="reg-email" required placeholder="example@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="reg-password">كلمة المرور</label>
+          <input type="password" id="reg-password" required placeholder="••••••••" minlength="4" />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">إنشاء حساب</button>
+      </form>
+      <div id="auth-user-panel" hidden>
+        <div class="user-info">
+          <div class="user-avatar" id="user-avatar">?</div>
+          <div>
+            <p class="user-name" id="user-name"></p>
+            <p class="user-email" id="user-email"></p>
+            <p class="user-points">نقاط الولاء: <strong id="user-points">0</strong></p>
+          </div>
+        </div>
+        <button class="btn btn-outline btn-block" id="view-orders-btn">طلباتي السابقة</button>
+        <button class="btn btn-ghost btn-block" id="logout-btn">تسجيل الخروج</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CART SIDEBAR ========== -->
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-header">
+      <h3>سلة المشتريات</h3>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="cart-clear-btn" id="cart-clear" title="إفراغ السلة">إفراغ</button>
+        <button class="modal-close" id="cart-close">×</button>
+      </div>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- filled by JS -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>الإجمالي</span>
+        <strong id="cart-total">0 ر.س</strong>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkout-btn" disabled>إتمام الطلب</button>
+    </div>
+  </aside>
+
+  <!-- ========== CHECKOUT / PAYMENT MODAL ========== -->
+  <div class="modal-overlay" id="checkout-modal" hidden>
+    <div class="modal checkout-modal">
+      <button class="modal-close" id="checkout-close">×</button>
+      <h2 class="checkout-title">إتمام الطلب — FuocoPay</h2>
+      <p class="checkout-subtitle">نظام الدفع الذكي</p>
+
+      <div class="checkout-steps">
+        <div class="step active" data-step="1">1. التفاصيل</div>
+        <div class="step" data-step="2">2. الدفع</div>
+        <div class="step" data-step="3">3. التأكيد</div>
+      </div>
+
+      <!-- STEP 1: Details -->
+      <div class="checkout-step-content" id="step-1">
+        <div class="form-group">
+          <label>نوع الطلب</label>
+          <div class="order-type-toggle">
+            <button type="button" class="type-btn active" data-type="delivery">توصيل</button>
+            <button type="button" class="type-btn" data-type="pickup">استلام</button>
+            <button type="button" class="type-btn" data-type="dinein">تناول في المطعم</button>
+          </div>
+        </div>
+        <div class="form-group" id="address-group">
+          <label for="checkout-address">عنوان التوصيل</label>
+          <input type="text" id="checkout-address" placeholder="الحي، الشارع، رقم المبنى" />
+        </div>
+        <div class="form-group" id="table-group" hidden>
+          <label for="table-number">رقم الطاولة</label>
+          <input type="number" id="table-number" min="1" max="50" placeholder="مثال: 12" />
+        </div>
+        <div class="form-group">
+          <label for="checkout-phone">رقم الجوال</label>
+          <input type="tel" id="checkout-phone" placeholder="05xxxxxxxx" required />
+        </div>
+        <div class="form-group">
+          <label for="checkout-notes">ملاحظات (اختياري)</label>
+          <textarea id="checkout-notes" rows="2" placeholder="بدون بصل، حار أكثر..."></textarea>
+        </div>
+        <button class="btn btn-primary btn-block" id="to-step-2">التالي — اختر طريقة الدفع</button>
+      </div>
+
+      <!-- STEP 2: Payment (Innovative) -->
+      <div class="checkout-step-content" id="step-2" hidden>
+        <p class="pay-label">اختر طريقة الدفع المبتكرة</p>
+        <div class="payment-methods">
+          <label class="pay-method">
+            <input type="radio" name="payment" value="card" checked />
+            <div class="pay-card">
+              <span class="pay-icon">💳</span>
+              <div>
+                <strong>بطاقة ائتمان / مدى</strong>
+                <small>آمن ومشفر</small>
+              </div>
+            </div>
+          </label>
+          <label class="pay-method">
+            <input type="radio" name="payment" value="wallet" />
+            <div class="pay-card">
+              <span class="pay-icon">📱</span>
+              <div>
+                <strong>محفظة رقمية</strong>
+                <small>Apple Pay / STC Pay / Google Pay</small>
+              </div>
+            </div>
+          </label>
+          <label class="pay-method">
+            <input type="radio" name="payment" value="tableqr" />
+            <div class="pay-card highlight">
+              <span class="pay-icon">🔲</span>
+              <div>
+                <strong>دفع الطاولة الذكي</strong>
+                <small>امسح QR أو أدخل رقم الطاولة — يظهر للنادل فورًا</small>
+              </div>
+            </div>
+          </label>
+          <label class="pay-method">
+            <input type="radio" name="payment" value="cod" />
+            <div class="pay-card">
+              <span class="pay-icon">💵</span>
+              <div>
+                <strong>الدفع عند الاستلام</strong>
+                <small>نقدًا أو بطاقة عند التوصيل</small>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <div class="tips-section">
+          <label>إكرامية للفريق (اختياري)</label>
+          <div class="tips-options">
+            <button type="button" class="tip-btn" data-tip="0">بدون</button>
+            <button type="button" class="tip-btn" data-tip="5">5 ر.س</button>
+            <button type="button" class="tip-btn active" data-tip="10">10 ر.س</button>
+            <button type="button" class="tip-btn" data-tip="15">15 ر.س</button>
+            <button type="button" class="tip-btn" data-tip="custom">مخصص</button>
+          </div>
+          <input type="number" id="custom-tip" hidden min="0" placeholder="مبلغ الإكرامية" />
+        </div>
+
+        <div class="loyalty-box">
+          <label>
+            <input type="checkbox" id="use-points" />
+            استخدم نقاط الولاء (<span id="available-points">0</span> نقطة = خصم)
+          </label>
+        </div>
+
+        <div class="checkout-summary">
+          <div class="sum-row"><span>المجموع الفرعي</span><span id="sum-subtotal">0</span></div>
+          <div class="sum-row"><span>الإكرامية</span><span id="sum-tip">10 ر.س</span></div>
+          <div class="sum-row" id="sum-discount-row" hidden><span>خصم النقاط</span><span id="sum-discount">0</span></div>
+          <div class="sum-row total"><span>الإجمالي النهائي</span><strong id="sum-total">0</strong></div>
+        </div>
+
+        <div class="checkout-actions">
+          <button class="btn btn-ghost" id="back-to-1">رجوع</button>
+          <button class="btn btn-primary" id="confirm-pay">تأكيد الدفع</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Confirmation -->
+      <div class="checkout-step-content" id="step-3" hidden>
+        <div class="success-animation">
+          <div class="success-circle">✓</div>
+          <h3>تم تأكيد طلبك بنجاح!</h3>
+          <p class="order-number">رقم الطلب: <strong id="order-id">#FD-0000</strong></p>
+          <div id="qr-display" class="qr-display" hidden>
+            <p>اعرض هذا الرمز للنادل أو على باب المطعم</p>
+            <div class="fake-qr" id="fake-qr">FD</div>
+            <p class="table-info" id="table-info"></p>
+          </div>
+          <p class="eta">الوقت المتوقع: <strong id="eta-time">25–35 دقيقة</strong></p>
+          <p class="points-earned">حصلت على <strong id="earned-points">0</strong> نقطة ولاء</p>
+        </div>
+        <button class="btn btn-primary btn-block" id="close-checkout">العودة للقائمة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== ORDERS HISTORY MODAL ========== -->
+  <div class="modal-overlay" id="orders-modal" hidden>
+    <div class="modal orders-modal">
+      <button class="modal-close" id="orders-close">×</button>
+      <h2>طلباتي السابقة</h2>
+      <div id="orders-list" class="orders-list">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== WISHLIST MODAL ========== -->
+  <div class="modal-overlay" id="wishlist-modal" hidden>
+    <div class="modal wishlist-modal">
+      <button class="modal-close" id="wishlist-close">×</button>
+      <h2>المفضلة</h2>
+      <div id="wishlist-items" class="wishlist-items">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- Mobile floating cart bar -->
+  <div class="mobile-cart-bar" id="mobile-cart-bar" aria-hidden="true">
+    <div class="mobile-cart-bar-inner">
+      <div class="mobile-cart-info">
+        <span class="mc-count" id="mc-count">0 أصناف</span>
+        <span class="mc-total" id="mc-total">0 ر.س</span>
+      </div>
+      <button class="btn btn-primary" id="mc-open-cart">عرض السلة</button>
+    </div>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-top-btn" id="scroll-top-btn" aria-label="العودة للأعلى" title="للأعلى">↑</button>
+
+</body>
+</html>
